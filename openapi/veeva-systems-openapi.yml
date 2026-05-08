@@ -1,0 +1,223 @@
+openapi: 3.1.0
+info:
+  title: Veeva Vault API
+  version: '26.1'
+  description: >-
+    Minimal OpenAPI for the Veeva Vault Platform REST API covering
+    authentication, session management, version discovery, VQL queries,
+    MDL execution, metadata components, Direct Data files, and delegated
+    sessions.
+  x-generated-from: https://developer.veevavault.com/api/26.1/
+  x-generated-by: claude-crawl-2026-05-08
+servers:
+  - url: https://{vaultDNS}/api/{version}
+    description: Vault REST API
+    variables:
+      vaultDNS:
+        default: myvault.veevavault.com
+        description: Customer Vault DNS hostname
+      version:
+        default: v26.1
+        description: API version
+security:
+  - SessionId: []
+tags:
+  - name: Authentication
+  - name: Query
+  - name: MDL
+  - name: Metadata
+  - name: DirectData
+paths:
+  /auth:
+    post:
+      tags: [Authentication]
+      summary: Authenticate using Vault user name and password
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                type: object
+  /keep-alive:
+    post:
+      tags: [Authentication]
+      summary: Refresh an active session to extend its duration
+      responses:
+        '200':
+          description: Session refreshed
+          content:
+            application/json:
+              schema:
+                type: object
+  /session:
+    delete:
+      tags: [Authentication]
+      summary: End the authenticated user's API session
+      responses:
+        '200':
+          description: Session ended
+          content:
+            application/json:
+              schema:
+                type: object
+  /:
+    get:
+      tags: [Metadata]
+      summary: Retrieve all supported versions of the Vault API
+      responses:
+        '200':
+          description: Version list
+          content:
+            application/json:
+              schema:
+                type: object
+  /query:
+    post:
+      tags: [Query]
+      summary: Execute a VQL query
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                q:
+                  type: string
+      responses:
+        '200':
+          description: Query result
+          content:
+            application/json:
+              schema:
+                type: object
+  /mdl/execute:
+    post:
+      tags: [MDL]
+      summary: Execute an MDL script synchronously
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Execution result
+          content:
+            application/json:
+              schema:
+                type: object
+  /mdl/execute_async:
+    post:
+      tags: [MDL]
+      summary: Execute an MDL script asynchronously for large operations
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Async job accepted
+          content:
+            application/json:
+              schema:
+                type: object
+  /metadata/components:
+    get:
+      tags: [Metadata]
+      summary: Retrieve metadata for all component types in the Vault
+      responses:
+        '200':
+          description: Component metadata
+          content:
+            application/json:
+              schema:
+                type: object
+  /metadata/components/{component_type}:
+    get:
+      tags: [Metadata]
+      summary: Retrieve metadata for a specific component type
+      parameters:
+        - name: component_type
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Component metadata
+          content:
+            application/json:
+              schema:
+                type: object
+  /services/directdata/files:
+    get:
+      tags: [DirectData]
+      summary: List Direct Data files available for download
+      responses:
+        '200':
+          description: Direct Data file list
+          content:
+            application/json:
+              schema:
+                type: object
+  /services/directdata/files/{name}:
+    get:
+      tags: [DirectData]
+      summary: Download a Direct Data file
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File payload
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /delegation/login:
+    post:
+      tags: [Authentication]
+      summary: Generate a delegated session ID for another user
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                delegator_userid:
+                  type: string
+      responses:
+        '200':
+          description: Delegated session
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    SessionId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Vault Session ID returned by /auth, sent as the Authorization header.

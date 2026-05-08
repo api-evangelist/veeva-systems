@@ -25,6 +25,8 @@ apis:
     properties:
       - url: https://developer.veeva.com/docs
         type: Documentation
+      - url: openapi/veeva-systems-openapi.yml
+        type: OpenAPI
     description: >-
       The Veeva Systems API provides access to platform services and data for enterprise integration and automation.
 common:

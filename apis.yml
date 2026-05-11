@@ -32,6 +32,10 @@ apis:
 common:
   - type: Website
     url: https://www.veeva.com
+  - type: Integrations
+    url: https://www.veeva.com/meet-veeva/partners/
+integrations:
+  - name: Veeva
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

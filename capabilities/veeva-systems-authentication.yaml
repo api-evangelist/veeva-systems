@@ -1,0 +1,188 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Veeva Vault API — Authentication
+  description: 'Veeva Vault API — Authentication. 4 operations. Lead operation: Authenticate using Vault user name and password.
+    Self-contained Naftiko capability covering one Veeva Systems business surface.'
+  tags:
+  - Veeva Systems
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VEEVA_SYSTEMS_API_KEY: VEEVA_SYSTEMS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: veeva-systems-authentication
+    baseUri: https://{vaultDNS}/api/{version}
+    description: Veeva Vault API — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: auth
+      path: /auth
+      operations:
+      - name: post
+        method: POST
+        description: Authenticate using Vault user name and password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: delegation-login
+      path: /delegation/login
+      operations:
+      - name: post
+        method: POST
+        description: Generate a delegated session ID for another user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: keep-alive
+      path: /keep-alive
+      operations:
+      - name: post
+        method: POST
+        description: Refresh an active session to extend its duration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: session
+      path: /session
+      operations:
+      - name: delete
+        method: DELETE
+        description: End the authenticated user's API session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.VEEVA_SYSTEMS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: veeva-systems-authentication-rest
+    port: 8080
+    description: REST adapter for Veeva Vault API — Authentication. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/auth
+      name: auth
+      description: REST surface for auth.
+      operations:
+      - method: POST
+        name: post
+        description: Authenticate using Vault user name and password
+        call: veeva-systems-authentication.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/delegation/login
+      name: delegation-login
+      description: REST surface for delegation-login.
+      operations:
+      - method: POST
+        name: post
+        description: Generate a delegated session ID for another user
+        call: veeva-systems-authentication.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keep-alive
+      name: keep-alive
+      description: REST surface for keep-alive.
+      operations:
+      - method: POST
+        name: post
+        description: Refresh an active session to extend its duration
+        call: veeva-systems-authentication.post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/session
+      name: session
+      description: REST surface for session.
+      operations:
+      - method: DELETE
+        name: delete
+        description: End the authenticated user's API session
+        call: veeva-systems-authentication.delete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: veeva-systems-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Veeva Vault API — Authentication. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: authenticate-using-vault-user-name
+      description: Authenticate using Vault user name and password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: veeva-systems-authentication.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generate-delegated-session-id-another
+      description: Generate a delegated session ID for another user
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: veeva-systems-authentication.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: refresh-active-session-extend-its
+      description: Refresh an active session to extend its duration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: veeva-systems-authentication.post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: end-authenticated-user-s-api-session
+      description: End the authenticated user's API session
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: veeva-systems-authentication.delete
+      outputParameters:
+      - type: object
+        mapping: $.

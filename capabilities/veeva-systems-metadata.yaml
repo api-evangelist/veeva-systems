@@ -1,0 +1,145 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Veeva Vault API — Metadata
+  description: 'Veeva Vault API — Metadata. 3 operations. Lead operation: Retrieve all supported versions of the Vault API.
+    Self-contained Naftiko capability covering one Veeva Systems business surface.'
+  tags:
+  - Veeva Systems
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VEEVA_SYSTEMS_API_KEY: VEEVA_SYSTEMS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: veeva-systems-metadata
+    baseUri: https://{vaultDNS}/api/{version}
+    description: Veeva Vault API — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: get
+        method: GET
+        description: Retrieve all supported versions of the Vault API
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metadata-components
+      path: /metadata/components
+      operations:
+      - name: get
+        method: GET
+        description: Retrieve metadata for all component types in the Vault
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metadata-components-component_type
+      path: /metadata/components/{component_type}
+      operations:
+      - name: get
+        method: GET
+        description: Retrieve metadata for a specific component type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: component_type
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.VEEVA_SYSTEMS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: veeva-systems-metadata-rest
+    port: 8080
+    description: REST adapter for Veeva Vault API — Metadata. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: GET
+        name: get
+        description: Retrieve all supported versions of the Vault API
+        call: veeva-systems-metadata.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metadata/components
+      name: metadata-components
+      description: REST surface for metadata-components.
+      operations:
+      - method: GET
+        name: get
+        description: Retrieve metadata for all component types in the Vault
+        call: veeva-systems-metadata.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metadata/components/{component-type}
+      name: metadata-components-component-type
+      description: REST surface for metadata-components-component_type.
+      operations:
+      - method: GET
+        name: get
+        description: Retrieve metadata for a specific component type
+        call: veeva-systems-metadata.get
+        with:
+          component_type: rest.component_type
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: veeva-systems-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Veeva Vault API — Metadata. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: retrieve-all-supported-versions-vault
+      description: Retrieve all supported versions of the Vault API
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: veeva-systems-metadata.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-metadata-all-component-types
+      description: Retrieve metadata for all component types in the Vault
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: veeva-systems-metadata.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-metadata-specific-component-type
+      description: Retrieve metadata for a specific component type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: veeva-systems-metadata.get
+      with:
+        component_type: tools.component_type
+      outputParameters:
+      - type: object
+        mapping: $.

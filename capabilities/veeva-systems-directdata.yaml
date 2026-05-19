@@ -1,0 +1,113 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Veeva Vault API — DirectData
+  description: 'Veeva Vault API — DirectData. 2 operations. Lead operation: List Direct Data files available for download.
+    Self-contained Naftiko capability covering one Veeva Systems business surface.'
+  tags:
+  - Veeva Systems
+  - DirectData
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VEEVA_SYSTEMS_API_KEY: VEEVA_SYSTEMS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: veeva-systems-directdata
+    baseUri: https://{vaultDNS}/api/{version}
+    description: Veeva Vault API — DirectData business capability. Self-contained, no shared references.
+    resources:
+    - name: services-directdata-files
+      path: /services/directdata/files
+      operations:
+      - name: get
+        method: GET
+        description: List Direct Data files available for download
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: services-directdata-files-name
+      path: /services/directdata/files/{name}
+      operations:
+      - name: get
+        method: GET
+        description: Download a Direct Data file
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.VEEVA_SYSTEMS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: veeva-systems-directdata-rest
+    port: 8080
+    description: REST adapter for Veeva Vault API — DirectData. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/services/directdata/files
+      name: services-directdata-files
+      description: REST surface for services-directdata-files.
+      operations:
+      - method: GET
+        name: get
+        description: List Direct Data files available for download
+        call: veeva-systems-directdata.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/services/directdata/files/{name}
+      name: services-directdata-files-name
+      description: REST surface for services-directdata-files-name.
+      operations:
+      - method: GET
+        name: get
+        description: Download a Direct Data file
+        call: veeva-systems-directdata.get
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: veeva-systems-directdata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Veeva Vault API — DirectData. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-direct-data-files-available
+      description: List Direct Data files available for download
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: veeva-systems-directdata.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-direct-data-file
+      description: Download a Direct Data file
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: veeva-systems-directdata.get
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

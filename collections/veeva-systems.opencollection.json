@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Veeva Vault API",
+    "version": "26.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate using Vault user name and password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/auth",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Authenticate using Vault user name and password"
+        },
+        {
+          "info": {
+            "name": "Refresh an active session to extend its duration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/keep-alive"
+          },
+          "docs": "Refresh an active session to extend its duration"
+        },
+        {
+          "info": {
+            "name": "End the authenticated user's API session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{vaultDNS}/api/{version}/session"
+          },
+          "docs": "End the authenticated user's API session"
+        },
+        {
+          "info": {
+            "name": "Generate a delegated session ID for another user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/delegation/login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "delegator_userid",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generate a delegated session ID for another user"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all supported versions of the Vault API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/"
+          },
+          "docs": "Retrieve all supported versions of the Vault API"
+        },
+        {
+          "info": {
+            "name": "Retrieve metadata for all component types in the Vault",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/metadata/components"
+          },
+          "docs": "Retrieve metadata for all component types in the Vault"
+        },
+        {
+          "info": {
+            "name": "Retrieve metadata for a specific component type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/metadata/components/:component_type",
+            "params": [
+              {
+                "name": "component_type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for a specific component type"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a VQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/query",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "q",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Execute a VQL query"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MDL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute an MDL script synchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/mdl/execute"
+          },
+          "docs": "Execute an MDL script synchronously"
+        },
+        {
+          "info": {
+            "name": "Execute an MDL script asynchronously for large operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/mdl/execute_async"
+          },
+          "docs": "Execute an MDL script asynchronously for large operations"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DirectData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Direct Data files available for download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/services/directdata/files"
+          },
+          "docs": "List Direct Data files available for download"
+        },
+        {
+          "info": {
+            "name": "Download a Direct Data file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/services/directdata/files/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a Direct Data file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

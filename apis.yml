@@ -2,7 +2,7 @@ aid: veeva-systems
 url: https://raw.githubusercontent.com/api-evangelist/veeva-systems/refs/heads/main/apis.yml
 name: Veeva Systems
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Healthcare
   - SaaS
@@ -20,7 +20,7 @@ apis:
       - Healthcare
       - SaaS
       - Life Sciences
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.veeva.com
     humanURL: https://developer.veeva.com
     properties:

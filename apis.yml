@@ -30,6 +30,10 @@ apis:
         type: OpenAPI
     description: The Veeva Systems API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: DomainSecurity
+    url: security/veeva-systems-domain-security.yml
+  - type: Authentication
+    url: authentication/veeva-systems-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/veeva
   - type: LinkedIn

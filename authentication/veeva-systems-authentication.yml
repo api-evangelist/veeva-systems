@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/veeva-systems-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: SessionId
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Vault Session ID returned by /auth, sent as the Authorization header.
+  sources:
+  - openapi/veeva-systems-openapi.yml

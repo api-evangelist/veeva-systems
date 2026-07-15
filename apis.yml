@@ -30,6 +30,8 @@ apis:
         type: OpenAPI
     description: The Veeva Systems API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: AgenticAccess
+    url: agentic-access/veeva-systems-agentic-access.yml
   - type: DomainSecurity
     url: security/veeva-systems-domain-security.yml
   - type: Authentication

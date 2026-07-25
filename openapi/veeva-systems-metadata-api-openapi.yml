@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Veeva Vault Authentication Metadata API
+  version: '26.1'
+  description: Minimal OpenAPI for the Veeva Vault Platform REST API covering authentication, session management, version discovery, VQL queries, MDL execution, metadata components, Direct Data files, and delegated sessions.
+  x-generated-from: https://developer.veevavault.com/api/26.1/
+  x-generated-by: claude-crawl-2026-05-08
+servers:
+- url: https://{vaultDNS}/api/{version}
+  description: Vault REST API
+  variables:
+    vaultDNS:
+      default: myvault.veevavault.com
+      description: Customer Vault DNS hostname
+    version:
+      default: v26.1
+      description: API version
+security:
+- SessionId: []
+tags:
+- name: Metadata
+paths:
+  /:
+    get:
+      tags:
+      - Metadata
+      summary: Retrieve all supported versions of the Vault API
+      responses:
+        '200':
+          description: Version list
+          content:
+            application/json:
+              schema:
+                type: object
+  /metadata/components:
+    get:
+      tags:
+      - Metadata
+      summary: Retrieve metadata for all component types in the Vault
+      responses:
+        '200':
+          description: Component metadata
+          content:
+            application/json:
+              schema:
+                type: object
+  /metadata/components/{component_type}:
+    get:
+      tags:
+      - Metadata
+      summary: Retrieve metadata for a specific component type
+      parameters:
+      - name: component_type
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Component metadata
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    SessionId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Vault Session ID returned by /auth, sent as the Authorization header.

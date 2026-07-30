@@ -2,7 +2,20 @@ aid: veeva-systems
 url: https://raw.githubusercontent.com/api-evangelist/veeva-systems/refs/heads/main/apis.yml
 name: Veeva Systems
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/veeva-systems.png
 tags:
   - Healthcare
   - SaaS
@@ -14,21 +27,66 @@ created: '2026-04-19'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: veeva-systems:veeva-systems-api
-    name: Veeva Systems API
-    tags:
-      - Healthcare
-      - SaaS
-      - Life Sciences
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.veeva.com
-    humanURL: https://developer.veeva.com
-    properties:
-      - url: https://developer.veeva.com/docs
-        type: Documentation
-      - url: openapi/veeva-systems-openapi.yml
-        type: OpenAPI
-    description: The Veeva Systems API provides access to platform services and data for enterprise integration and automation.
+- aid: veeva-systems:veeva-systems-authentication-api
+  name: Veeva Systems Authentication API
+  description: The Authentication API from Veeva Systems — 4 operation(s) for authentication.
+  humanURL: https://developer.veeva.com
+  baseURL: https://api.veeva.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/veeva-systems-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developer.veeva.com/docs
+- aid: veeva-systems:veeva-systems-directdata-api
+  name: Veeva Systems DirectData API
+  description: The DirectData API from Veeva Systems — 2 operation(s) for directdata.
+  humanURL: https://developer.veeva.com
+  baseURL: https://api.veeva.com
+  tags:
+  - DirectData
+  properties:
+  - type: OpenAPI
+    url: openapi/veeva-systems-directdata-api-openapi.yml
+  - type: Documentation
+    url: https://developer.veeva.com/docs
+- aid: veeva-systems:veeva-systems-mdl-api
+  name: Veeva Systems MDL API
+  description: The MDL API from Veeva Systems — 2 operation(s) for mdl.
+  humanURL: https://developer.veeva.com
+  baseURL: https://api.veeva.com
+  tags:
+  - MDL
+  properties:
+  - type: OpenAPI
+    url: openapi/veeva-systems-mdl-api-openapi.yml
+  - type: Documentation
+    url: https://developer.veeva.com/docs
+- aid: veeva-systems:veeva-systems-metadata-api
+  name: Veeva Systems Metadata API
+  description: The Metadata API from Veeva Systems — 3 operation(s) for metadata.
+  humanURL: https://developer.veeva.com
+  baseURL: https://api.veeva.com
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/veeva-systems-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://developer.veeva.com/docs
+- aid: veeva-systems:veeva-systems-query-api
+  name: Veeva Systems Query API
+  description: The Query API from Veeva Systems — 1 operation(s) for query.
+  humanURL: https://developer.veeva.com
+  baseURL: https://api.veeva.com
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/veeva-systems-query-api-openapi.yml
+  - type: Documentation
+    url: https://developer.veeva.com/docs
 common:
   - type: AgenticAccess
     url: agentic-access/veeva-systems-agentic-access.yml

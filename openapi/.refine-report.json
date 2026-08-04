@@ -1,0 +1,22 @@
+{
+  "provider": "veeva-systems",
+  "sources": [
+    "veeva-systems-authentication-api-openapi.yml",
+    "veeva-systems-directdata-api-openapi.yml",
+    "veeva-systems-mdl-api-openapi.yml",
+    "veeva-systems-metadata-api-openapi.yml",
+    "veeva-systems-query-api-openapi.yml"
+  ],
+  "outputs": [
+    "veeva-systems-authentication-api-openapi.yml",
+    "veeva-systems-directdata-api-openapi.yml",
+    "veeva-systems-mdl-api-openapi.yml",
+    "veeva-systems-metadata-api-openapi.yml",
+    "veeva-systems-query-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

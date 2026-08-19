@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Veeva Vault Authentication DirectData API",
+    "version": "26.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DirectData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Direct Data files available for download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/services/directdata/files"
+          },
+          "docs": "List Direct Data files available for download"
+        },
+        {
+          "info": {
+            "name": "Download a Direct Data file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/services/directdata/files/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a Direct Data file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,191 @@
+{
+  "item": [
+    {
+      "id": "2b36a097-d411-43dd-8eb8-ff472f2fea28",
+      "name": "Query",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2efbb538-5061-46b6-977b-2d6dfd7109aa",
+          "name": "Execute a VQL query",
+          "request": {
+            "name": "Execute a VQL query",
+            "description": {},
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer Vault DNS hostname",
+                  "type": "any",
+                  "value": "{{vaultDNS}}",
+                  "key": "vaultDNS"
+                },
+                {
+                  "description": "API version",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19a8630c-bcfd-41f4-9232-e0d345170599",
+              "name": "Query result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer Vault DNS hostname",
+                      "type": "any",
+                      "value": "{{vaultDNS}}",
+                      "key": "vaultDNS"
+                    },
+                    {
+                      "description": "API version",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Customer Vault DNS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myvault.veevavault.com",
+      "key": "vaultDNS"
+    },
+    {
+      "description": {
+        "content": "API version",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v26.1",
+      "key": "version"
+    },
+    {
+      "type": "string",
+      "value": "https://{{vaultDNS}}/api/{{version}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b9dcfba-502e-48c6-af7e-51af60198c50",
+    "name": "Veeva Vault Authentication Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Minimal OpenAPI for the Veeva Vault Platform REST API covering authentication, session management, version discovery, VQL queries, MDL execution, metadata components, Direct Data files, and delegated sessions.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "item": [
+    {
+      "id": "80dcb6bd-819d-42be-ba88-7fec04933098",
+      "name": "Metadata",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "610c4534-29d3-4a06-adaa-0410cce93fc4",
+          "name": "Retrieve all supported versions of the Vault API",
+          "request": {
+            "name": "Retrieve all supported versions of the Vault API",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer Vault DNS hostname",
+                  "type": "any",
+                  "value": "{{vaultDNS}}",
+                  "key": "vaultDNS"
+                },
+                {
+                  "description": "API version",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f9a9af6-875d-41e8-9b4b-65c9ad2b1994",
+              "name": "Version list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer Vault DNS hostname",
+                      "type": "any",
+                      "value": "{{vaultDNS}}",
+                      "key": "vaultDNS"
+                    },
+                    {
+                      "description": "API version",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25482eb2-1841-4015-a2cc-914ad609ec7b",
+          "name": "Retrieve metadata for all component types in the Vault",
+          "request": {
+            "name": "Retrieve metadata for all component types in the Vault",
+            "description": {},
+            "url": {
+              "path": [
+                "metadata",
+                "components"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer Vault DNS hostname",
+                  "type": "any",
+                  "value": "{{vaultDNS}}",
+                  "key": "vaultDNS"
+                },
+                {
+                  "description": "API version",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f091668-76ee-4833-b398-3ddcf319bb64",
+              "name": "Component metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "components"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer Vault DNS hostname",
+                      "type": "any",
+                      "value": "{{vaultDNS}}",
+                      "key": "vaultDNS"
+                    },
+                    {
+                      "description": "API version",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab945cd3-269a-4a19-9c0c-015533452bae",
+          "name": "Retrieve metadata for a specific component type",
+          "request": {
+            "name": "Retrieve metadata for a specific component type",
+            "description": {},
+            "url": {
+              "path": [
+                "metadata",
+                "components",
+                ":component_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "component_type",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Customer Vault DNS hostname",
+                  "type": "any",
+                  "value": "{{vaultDNS}}",
+                  "key": "vaultDNS"
+                },
+                {
+                  "description": "API version",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b07064d-5035-4ba5-a8d0-06e2064bf697",
+              "name": "Component metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "components",
+                    ":component_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "component_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Customer Vault DNS hostname",
+                      "type": "any",
+                      "value": "{{vaultDNS}}",
+                      "key": "vaultDNS"
+                    },
+                    {
+                      "description": "API version",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Customer Vault DNS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myvault.veevavault.com",
+      "key": "vaultDNS"
+    },
+    {
+      "description": {
+        "content": "API version",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v26.1",
+      "key": "version"
+    },
+    {
+      "type": "string",
+      "value": "https://{{vaultDNS}}/api/{{version}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "336dc6e9-0eb7-4322-9c54-740784dde0c4",
+    "name": "Veeva Vault Authentication Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Minimal OpenAPI for the Veeva Vault Platform REST API covering authentication, session management, version discovery, VQL queries, MDL execution, metadata components, Direct Data files, and delegated sessions.",
+      "type": "text/plain"
+    }
+  }
+}

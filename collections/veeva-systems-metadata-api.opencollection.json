@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Veeva Vault Authentication Metadata API",
+    "version": "26.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all supported versions of the Vault API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/"
+          },
+          "docs": "Retrieve all supported versions of the Vault API"
+        },
+        {
+          "info": {
+            "name": "Retrieve metadata for all component types in the Vault",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/metadata/components"
+          },
+          "docs": "Retrieve metadata for all component types in the Vault"
+        },
+        {
+          "info": {
+            "name": "Retrieve metadata for a specific component type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultDNS}/api/{version}/metadata/components/:component_type",
+            "params": [
+              {
+                "name": "component_type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for a specific component type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

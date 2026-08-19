@@ -1,0 +1,295 @@
+{
+  "item": [
+    {
+      "id": "ebb40707-5a02-44da-afe1-222f5cb53bf6",
+      "name": "MDL",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2585fb7c-7273-4f25-afd3-4b4f49f44235",
+          "name": "Execute an MDL script synchronously",
+          "request": {
+            "name": "Execute an MDL script synchronously",
+            "description": {},
+            "url": {
+              "path": [
+                "mdl",
+                "execute"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer Vault DNS hostname",
+                  "type": "any",
+                  "value": "{{vaultDNS}}",
+                  "key": "vaultDNS"
+                },
+                {
+                  "description": "API version",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "754dd919-60f4-4494-8e0c-f1ffbf5bccb9",
+              "name": "Execution result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mdl",
+                    "execute"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer Vault DNS hostname",
+                      "type": "any",
+                      "value": "{{vaultDNS}}",
+                      "key": "vaultDNS"
+                    },
+                    {
+                      "description": "API version",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb07a10f-08e1-42cc-a2a5-8a59b78ea2c8",
+          "name": "Execute an MDL script asynchronously for large operations",
+          "request": {
+            "name": "Execute an MDL script asynchronously for large operations",
+            "description": {},
+            "url": {
+              "path": [
+                "mdl",
+                "execute_async"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer Vault DNS hostname",
+                  "type": "any",
+                  "value": "{{vaultDNS}}",
+                  "key": "vaultDNS"
+                },
+                {
+                  "description": "API version",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "c8efe07e-6476-45e4-9bb8-d943e7bbca2c",
+              "name": "Async job accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mdl",
+                    "execute_async"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer Vault DNS hostname",
+                      "type": "any",
+                      "value": "{{vaultDNS}}",
+                      "key": "vaultDNS"
+                    },
+                    {
+                      "description": "API version",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Customer Vault DNS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myvault.veevavault.com",
+      "key": "vaultDNS"
+    },
+    {
+      "description": {
+        "content": "API version",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v26.1",
+      "key": "version"
+    },
+    {
+      "type": "string",
+      "value": "https://{{vaultDNS}}/api/{{version}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf83c27f-5353-48d4-811e-2f07b7a25ad8",
+    "name": "Veeva Vault Authentication MDL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Minimal OpenAPI for the Veeva Vault Platform REST API covering authentication, session management, version discovery, VQL queries, MDL execution, metadata components, Direct Data files, and delegated sessions.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Veeva Vault Authentication Query API",
+    "version": "26.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a VQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/query",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "q",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Execute a VQL query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

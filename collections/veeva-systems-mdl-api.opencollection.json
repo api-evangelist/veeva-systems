@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Veeva Vault Authentication MDL API",
+    "version": "26.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MDL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute an MDL script synchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/mdl/execute"
+          },
+          "docs": "Execute an MDL script synchronously"
+        },
+        {
+          "info": {
+            "name": "Execute an MDL script asynchronously for large operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/mdl/execute_async"
+          },
+          "docs": "Execute an MDL script asynchronously for large operations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

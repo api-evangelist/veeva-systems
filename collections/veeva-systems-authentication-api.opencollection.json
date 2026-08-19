@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Veeva Vault Authentication API",
+    "version": "26.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate using Vault user name and password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/auth",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Authenticate using Vault user name and password"
+        },
+        {
+          "info": {
+            "name": "Refresh an active session to extend its duration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/keep-alive"
+          },
+          "docs": "Refresh an active session to extend its duration"
+        },
+        {
+          "info": {
+            "name": "End the authenticated user's API session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{vaultDNS}/api/{version}/session"
+          },
+          "docs": "End the authenticated user's API session"
+        },
+        {
+          "info": {
+            "name": "Generate a delegated session ID for another user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultDNS}/api/{version}/delegation/login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "delegator_userid",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generate a delegated session ID for another user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

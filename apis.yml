@@ -18,6 +18,10 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/veeva-systems.png
 tags:
   - Healthcare
+  - Software-as-a-Service
+  - Life Sciences
+tags_raw:
+  - Healthcare
   - SaaS
   - Life Sciences
 description: >-

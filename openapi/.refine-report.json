@@ -17,6 +17,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "veeva-systems-authentication-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "veeva-systems-directdata-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "veeva-systems-mdl-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "veeva-systems-metadata-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "veeva-systems-query-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

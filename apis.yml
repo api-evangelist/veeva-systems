@@ -104,6 +104,86 @@ apis:
   - type: Documentation
     url: https://developer.veeva.com/docs
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/veeva/overview
+  - type: Portal
+    url: https://developer.veevavault.com/
+  - type: Documentation
+    url: https://developer.veevavault.com/docs
+  - type: GettingStarted
+    url: https://developer.veevavault.com/docs
+  - type: ChangeLog
+    url: https://developer.veevavault.com/rn/25.3/
+  - type: SDKs
+    url: https://developer.veevavault.com/sdk/
+  - type: Support
+    url: https://support.veeva.com/hc/en-us
+  - type: PrivacyPolicy
+    url: https://www.veeva.com/privacy/
+  - type: JSONSchema
+    url: json-schema/veeva-systems-vault-document-schema.json
+  - type: JSONLDContext
+    url: json-ld/veeva-systems-context.jsonld
+  - type: SpectralRules
+    url: rules/veeva-systems-spectral-rules.yml
+  - type: Vocabulary
+    url: vocabulary/veeva-systems-vocabulary.yml
+  - type: Packages
+    url: packages/veeva-systems-packages.yml
+  - type: SDKs
+    url: packages/veeva-systems-packages.yml
+  - type: MCPServer
+    url: mcp/veeva-systems-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/veeva-systems-tool-crosswalk.yml
+  - type: LLMsTxt
+    url: llms/veeva-systems-llms.txt
+  - type: Conformance
+    url: conformance/veeva-systems-conformance.yml
+  - type: Compliance
+    url: conformance/veeva-systems-conformance.yml
+  - type: ErrorCatalog
+    url: errors/veeva-systems-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/veeva-systems-lifecycle.yml
+  - type: StatusPage
+    url: https://trust.veeva.com/
+  - type: TrustCenter
+    url: https://www.veeva.com/trust/
+  - type: Sandbox
+    url: sandbox/veeva-systems-sandbox.yml
+  - type: Conventions
+    url: conventions/veeva-systems-conventions.yml
+  - type: ChangeLog
+    url: changelog/veeva-systems-changelog.yml
+  - type: Components
+    url: components/veeva-systems-components.yml
+  - type: DataModel
+    url: data-model/veeva-systems-data-model.yml
+  - type: Webhooks
+    url: asyncapi/veeva-systems-spark-messaging-webhooks.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Overlay
+    url: overlays/veeva-systems-documents-api-overlay.yaml
+  - type: Postman
+    url: https://www.postman.com/veevavault
+  - type: DeveloperPortal
+    url: https://veevavault.dev
+  - type: APIReference
+    url: https://general.veevavault.dev/vault-api/api-reference/26.2
+  - type: Documentation
+    url: https://general.veevavault.dev/vault-api
+  - type: GettingStarted
+    url: https://general.veevavault.dev/vault-api/getting-started/prerequisites
+  - type: TermsOfService
+    url: https://www.veeva.com/terms/
+  - type: Blog
+    url: https://www.veeva.com/veeva-blog/
+  - type: Community
+    url: http://devcommunity.veevavault.com/
+  - type: Partners
+    url: https://www.veeva.com/meet-veeva/partners/
   - type: AgenticAccess
     url: agentic-access/veeva-systems-agentic-access.yml
   - type: DomainSecurity
@@ -123,5 +203,3 @@ integrations:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-x-parent: veeva
-x-relationship: product
